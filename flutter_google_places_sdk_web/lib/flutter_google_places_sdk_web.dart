@@ -3,9 +3,7 @@ library places;
 
 import 'dart:async';
 import 'dart:developer';
-import 'dart:html' as html;
 import 'dart:js_interop';
-import 'dart:js_util';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -22,6 +20,9 @@ import 'package:web/web.dart' as web;
 
 @JS('initMap')
 external set _initMap(JSFunction f);
+
+@JS('Object.getProperty')
+external dynamic getProperty(dynamic object, String property);
 
 /// Web implementation plugin for flutter google places sdk
 class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
@@ -62,18 +63,18 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
 
     _initMap = _doInit.toJS;
 
-    html.Element? scriptExist =
-        html.window.document.querySelector('#$_SCRIPT_ID');
+    web.Element? scriptExist =
+        web.window.document.querySelector('#$_SCRIPT_ID');
     if (scriptExist != null) {
       _doInit();
     } else {
-      final body = html.window.document.querySelector('body')!;
+      final body = web.window.document.querySelector('body')!;
       var src =
           'https://maps.googleapis.com/maps/api/js?key=${apiKey}&loading=async&libraries=places&callback=initMap';
       if (locale?.languageCode != null) {
         _language = locale?.languageCode;
       }
-      body.append(html.ScriptElement()
+      body.append(web.HTMLScriptElement()
         ..id = _SCRIPT_ID
         ..src = src
         ..async = true
@@ -92,7 +93,7 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
 
   void _doInit() {
     _svcAutoComplete = AutocompleteService();
-    _svcPlaces = PlacesService(html.window.document.createElement('div') as web.HTMLElement);
+    _svcPlaces = PlacesService(web.window.document.createElement('div') as web.HTMLElement);
     _completer!.complete();
   }
 
