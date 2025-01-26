@@ -22,7 +22,7 @@ import 'package:web/web.dart' as web;
 external set _initMap(JSFunction f);
 
 @JS('Object.getProperty')
-external Object? getProperty(Object object, String property);
+external JSObject? getProperty(JSObject object, String property);
 
 /// Web implementation plugin for flutter google places sdk
 class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
@@ -228,7 +228,7 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
           .cast<inter.AddressComponent>()
           .toList(growable: false),
       businessStatus:
-          _parseBusinessStatus(getProperty(place, 'business_status')?.toString()),
+          _parseBusinessStatus(getProperty(place, 'business_status').toString()),
       attributions: place.htmlAttributions?.cast<String>(),
       latLng: _parseLatLang(place.geometry?.location),
       name: place.name,
