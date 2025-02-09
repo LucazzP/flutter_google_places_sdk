@@ -2,15 +2,14 @@
 library places;
 
 import 'dart:async';
-import 'dart:developer';
 import 'dart:js_interop';
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart';
 import 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart'
     as inter;
+import 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart';
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 import 'package:google_maps/google_maps.dart' as core;
 import 'package:google_maps/google_maps_geocoding.dart' as geocoding;
@@ -117,10 +116,6 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
     inter.LatLngBounds? locationRestriction,
   }) async {
     await _completer;
-    if (locationRestriction != null) {
-      // https://issuetracker.google.com/issues/36219203
-      log("locationRestriction is not supported: https://issuetracker.google.com/issues/36219203");
-    }
     final sessionToken = _getSessionToken(force: newSessionToken == true);
     _lastSessionToken = sessionToken;
     final prom = _svcAutoComplete!.getPlacePredictions(AutocompletionRequest(
@@ -129,7 +124,8 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
       types: placeTypesFilter.isEmpty ? null : placeTypesFilter.map((e) => e.toJS).toList().toJS,
       componentRestrictions:
           ComponentRestrictions(country: countries?.map((e) => e.toJS).toList().toJS),
-      bounds: _boundsToWeb(locationBias),
+      locationBias: _boundsToWeb(locationBias),
+      locationRestriction: _boundsToWeb(locationRestriction),
       language: _language,
       sessionToken: sessionToken,
     ));
