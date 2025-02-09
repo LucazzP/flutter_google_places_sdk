@@ -126,8 +126,9 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
     final prom = _svcAutoComplete!.getPlacePredictions(AutocompletionRequest(
       input: query,
       origin: origin == null ? null : core.LatLng(origin.lat, origin.lng),
-      types: placeTypesFilter.isEmpty ? null : placeTypesFilter.toJS,
-      componentRestrictions: (ComponentRestrictions()..country = countries?.jsify()),
+      types: placeTypesFilter.isEmpty ? null : placeTypesFilter.map((e) => e.toJS).toList().toJS,
+      componentRestrictions:
+          ComponentRestrictions(country: countries?.map((e) => e.toJS).toList().toJS),
       bounds: _boundsToWeb(locationBias),
       language: _language,
       sessionToken: sessionToken,
@@ -204,8 +205,6 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
         return 'geometry.viewport';
       case PlaceField.WebsiteUri:
         return 'website';
-      default:
-        throw ArgumentError('Unsupported place field: $this');
     }
   }
 
