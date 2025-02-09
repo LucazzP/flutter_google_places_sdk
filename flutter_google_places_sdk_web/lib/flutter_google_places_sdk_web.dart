@@ -3,6 +3,7 @@ library places;
 
 import 'dart:async';
 import 'dart:js_interop';
+import 'dart:js' as js;
 
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
@@ -61,7 +62,12 @@ class FlutterGooglePlacesSdkWebPlugin extends FlutterGooglePlacesSdkPlatform {
 
     web.Element? scriptExist = web.window.document.querySelector('#$_SCRIPT_ID');
     if (scriptExist != null) {
-      _doInit();
+      bool googleMapsLoaded =
+          js.context.hasProperty('google') && js.context['google'].hasProperty('maps');
+
+      if (googleMapsLoaded) {
+        _doInit();
+      }
     } else {
       final body = web.window.document.querySelector('body')!;
       var src =
