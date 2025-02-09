@@ -1,4 +1,4 @@
-import 'package:flutter/foundation.dart';
+
 
 /// Filter to restrict the result set of autocomplete predictions to certain types.
 ///
@@ -28,12 +28,34 @@ enum PlaceTypeFilter {
   /// COUNTRY
   /// ADMINISTRATIVE_AREA_LEVEL_1
   /// ADMINISTRATIVE_AREA_LEVEL_2
-  REGIONS,
+  REGIONS;
 
-  /// All types are returned
-  ALL,
+  factory PlaceTypeFilter.fromJson(String name) {
+    name = name.toLowerCase();
+    for (final value in values) {
+      if (value.name.toLowerCase() == name) {
+        return value;
+      }
+    }
+    throw ArgumentError.value(name, 'name', 'No enum value with that name');
+  }
+
+  String get apiExpectedValue {
+    switch (this) {
+      case PlaceTypeFilter.ADDRESS:
+        return 'address';
+      case PlaceTypeFilter.CITIES:
+        return '(cities)';
+      case PlaceTypeFilter.ESTABLISHMENT:
+        return 'establishment';
+      case PlaceTypeFilter.GEOCODE:
+        return 'geocode';
+      case PlaceTypeFilter.REGIONS:
+        return '(regions)';
+    }
+  }
 }
 
 extension PlaceTypeFilterDescriptor on PlaceTypeFilter {
-  String get value => describeEnum(this);
+  String get value => name;
 }

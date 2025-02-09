@@ -1,3 +1,36 @@
+## 0.3.1+1
+
+* Add missing place types: `administrative_area_level_6`, `administrative_area_level_7`, `landmark`
+
+## 0.3.1
+
+* fix: Add missing argument `regionCode` to `fetchPlace` function
+
+## 0.3.0
+
+* feat: Added support for Google Places (new) which can be enabled through `initialize` function.
+* feat: Added `searchByText` and `searchNearby` function for Places (new).
+* feat: Added `nameLanguageCode` and `reviews` to Place object.
+
+## 0.2.7
+
+* Now receiving an already converted string list for typesFilter in `findAutocompletePredictions`
+* Added an `apiExpectedValue` computed property to convert `PlaceTypeFilter` enum value to the expected string for the Google API
+* Added `id` property to `Place` object.
+* Upgraded `plugin_platform_interface` to `^2.1.6`
+
+## 0.2.6
+
+* Added any_map to all enums to freezed -> json_serializable
+* Defined custom fromJson and toJson for all enums for case insensitive serialization & deserialization.
+* Upgraded sdk minimum to 2.17.0 for enhanced enum support
+
+## 0.2.5
+
+* findAutocompletePredictions: now uses List<String> for typeFilter rather than just a single String.
+* PlaceTypeFilter: Removed ALL enum. Since it's used as a list, passing an empty list is equivalent to all.
+* Updated sdk minimum to 2.14.0
+
 ## 0.2.4+4
 
 * Added types property to the Autocomplete predictions

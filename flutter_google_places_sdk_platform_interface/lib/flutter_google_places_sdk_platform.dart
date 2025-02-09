@@ -40,13 +40,13 @@ abstract class FlutterGooglePlacesSdkPlatform extends PlatformInterface {
     throw UnimplementedError('deinitialize() has not been implemented.');
   }
 
-  /// Initializes Places for the given application context with the given API key.
+  /// Initializes Places for the given application context with the given API key. Use [useNewApi] to enable the Places API (New) in the SDK
   ///
   /// All Places API responses are localized using the device's locale.
   /// This method should only be called once prior to using the Places API.
   /// You may call this method again to update the API key used;
   /// if so, all widgets and instances of PlacesClient will now use this new key.
-  Future<void> initialize(String apiKey, {Locale? locale}) {
+  Future<void> initialize(String apiKey, {Locale? locale, bool? useNewApi}) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
@@ -56,7 +56,7 @@ abstract class FlutterGooglePlacesSdkPlatform extends PlatformInterface {
   }
 
   /// Updates the settings of the places client with the given API key and locale.
-  Future<void> updateSettings(String apiKey, {Locale? locale}) {
+  Future<void> updateSettings(String apiKey, {Locale? locale, bool? useNewApi}) {
     throw UnimplementedError('initialize() has not been implemented.');
   }
 
@@ -79,7 +79,7 @@ abstract class FlutterGooglePlacesSdkPlatform extends PlatformInterface {
   Future<FindAutocompletePredictionsResponse> findAutocompletePredictions(
     String query, {
     List<String>? countries,
-    PlaceTypeFilter placeTypeFilter = PlaceTypeFilter.ALL,
+    List<String> placeTypesFilter = const [],
     bool? newSessionToken,
     LatLng? origin,
     LatLngBounds? locationBias,
@@ -100,6 +100,7 @@ abstract class FlutterGooglePlacesSdkPlatform extends PlatformInterface {
     String placeId, {
     required List<PlaceField> fields,
     bool? newSessionToken,
+    String? regionCode,
   }) {
     throw UnimplementedError('fetchPlaceDetails() has not been implemented.');
   }
@@ -116,5 +117,54 @@ abstract class FlutterGooglePlacesSdkPlatform extends PlatformInterface {
     int? maxHeight,
   }) {
     throw UnimplementedError('fetchPlacePhoto() has not been implemented.');
+  }
+
+  /// Fetches places based on an ambiguous text query.
+  ///
+  /// Only the requested [fields] will be returned. If none specified,
+  /// all fields will be returned.
+  ///
+  /// Note that different fields can incur different billing.
+  ///
+  /// For more info about billing: https://developers.google.com/maps/documentation/places/android-sdk/usage-and-billing#pricing-new
+  ///
+  /// For more info on text search: https://developers.google.com/maps/documentation/places/android-sdk/text-search
+  Future<SearchByTextResponse> searchByText(
+    String textQuery, {
+    required List<PlaceField> fields,
+    String? includedType,
+    int? maxResultCount,
+    LatLngBounds? locationBias,
+    LatLngBounds? locationRestriction,
+    double? minRating,
+    bool? openNow,
+    List<int>? priceLevels,
+    TextSearchRankPreference? rankPreference,
+    String? regionCode,
+    bool? strictTypeFiltering,
+  }) {
+    throw UnimplementedError('fetchPlacePhoto() has not been implemented.');
+  }
+
+  /// Search for place(s) of interest using a location.
+  ///
+  /// Only the requested [fields] will be returned. If none specified,
+  /// all fields will be returned.
+  ///
+  /// Note that different fields can incur different billing.
+  ///
+  /// For more info on nearby search: https://developers.google.com/maps/documentation/places/android-sdk/nearby-search
+  Future<SearchNearbyResponse> searchNearby({
+    required List<PlaceField> fields,
+    required CircularBounds locationRestriction,
+    List<String>? includedTypes,
+    List<String>? includedPrimaryTypes,
+    List<String>? excludedTypes,
+    List<String>? excludedPrimaryTypes,
+    NearbySearchRankPreference? rankPreference,
+    String? regionCode,
+    int? maxResultCount,
+  }) {
+    throw UnimplementedError('searchNearby() has not been implemented.');
   }
 }

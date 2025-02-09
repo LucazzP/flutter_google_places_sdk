@@ -1,3 +1,43 @@
+## 0.2.0-dev.1
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.3.1+1`
+* * Update Google Places SDK to 3.5.0
+* Add support for Places (new) API
+* Add [Text Search](https://developers.google.com/maps/documentation/places/web-service/text-search) feature
+* Add [Nearby Search](https://developers.google.com/maps/documentation/places/web-service/nearby-search) feature
+* Add `reviews` and `nameLanguageCode` fields to response from `fetchPlace`
+
+## 0.1.9
+
+* Upgrading gradle kotlin and java versions to be compatible with Java 17
+
+## 0.1.8
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.2.7`
+* Implemented `id` property in `place`
+
+## 0.1.7
+
+* Upgrading flutter_google_places_sdk_platform_interface to 0.2.6
+
+## 0.1.6
+
+* Adding 'sourceCompatibility' and 'targetCompatibility' to build.gradle
+
+## 0.1.5
+
+* Updating min android sdk version to 21
+* Upgrading flutter_google_places_sdk_platform_interface to 0.2.5
+
+## 0.1.4
+
+* Upgrading java library com.google.android.libraries.places:places to 3.2.0
+
+## 0.1.3
+
+* Added namespace attribute in android/build.gradle for AGP
+* Updated sdk minimum to 2.14.0
+
 ## 0.1.2+6
 
 * Updating kotlin version to 1.7.21

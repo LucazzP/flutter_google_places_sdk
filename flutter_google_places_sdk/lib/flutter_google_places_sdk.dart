@@ -2,36 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart';
-
-export 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart'
-    show
-        AddressComponent,
-        AutocompletePrediction,
-        BusinessStatus,
-        BusinessStatusDescriptor,
-        BusinessStatusEnumParser,
-        DayOfWeek,
-        DayOfWeekDescriptor,
-        DayOfWeekEnumParser,
-        FetchPlaceResponse,
-        FetchPlacePhotoResponse,
-        FindAutocompletePredictionsResponse,
-        LatLng,
-        LatLngBounds,
-        OpeningHours,
-        Period,
-        PhotoMetadata,
-        Place,
-        PlaceField,
-        PlaceFieldDescriptor,
-        PlaceLocalTime,
-        PlaceType,
-        PlaceTypeDescriptor,
-        PlaceTypeEnumParser,
-        PlaceTypeFilter,
-        PlaceTypeFilterDescriptor,
-        PlusCode,
-        TimeOfWeek;
+export 'package:flutter_google_places_sdk_platform_interface/flutter_google_places_sdk_platform_interface.dart';
 
 /// Client used to call methods on the native google places sdk
 class FlutterGooglePlacesSdk {
@@ -120,7 +91,7 @@ class FlutterGooglePlacesSdk {
   Future<FindAutocompletePredictionsResponse> findAutocompletePredictions(
     String query, {
     List<String>? countries,
-    PlaceTypeFilter placeTypeFilter = PlaceTypeFilter.ALL,
+    List<PlaceTypeFilter> placeTypesFilter = const [],
     bool? newSessionToken,
     LatLng? origin,
     LatLngBounds? locationBias,
@@ -129,7 +100,7 @@ class FlutterGooglePlacesSdk {
     return _addMethodCall(() => platform.findAutocompletePredictions(
           query,
           countries: countries,
-          placeTypeFilter: placeTypeFilter,
+          placeTypesFilter: placeTypesFilter.map((type) => type.apiExpectedValue).toList(),
           newSessionToken: newSessionToken,
           origin: origin,
           locationBias: locationBias,

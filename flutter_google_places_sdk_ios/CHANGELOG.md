@@ -1,3 +1,18 @@
+## 0.1.5
+
+* Upgrade to Google Places 8.5.0 and Google Maps 7.1.0 
+
+## 0.1.4
+
+* Update Google Places to 8.3.0
+
+## 0.1.3
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.2.7`
+* Updating GooglePlaces version restrictions to minimum 7.1.0
+* Updating minimum iOS platform to 13.0
+* Updating sdk minimum to 2.17.0
+
 ## 0.1.2+4
 
 * Implements latLngBoundsToMap

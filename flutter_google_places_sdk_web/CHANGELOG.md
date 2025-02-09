@@ -1,10 +1,34 @@
-## 0.1.3+5
+## 0.1.9
 
 * Fix: session token is never used during the place autocomplete
 
+## 0.1.8
+
+* Upgrading `google_maps` to ^8.1.1
+* Upgrading `js` to ^0.7.1
+* fetchPlacePhoto will no longer use the maxWidth/maxHeight parameter since they're not available in the getUrl method
+
+## 0.1.7
+
+* Upgrading `google_maps` to ^7.1.0
+
+## 0.1.6
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.2.7`
+* Implemented `id` property in `Place`
+
+## 0.1.5
+
+* Upgrading flutter_google_places_sdk_platform_interface to 0.2.6
+* Upgrading sdk minimum to 2.17.0
+
+## 0.1.4
+
+* Upgrading flutter_google_places_sdk_platform_interface to 0.2.5
+
 ## 0.1.3+4
 
-* Use formatted adrress instead of adr_address
+* Use formatted address instead of adr_address
 
 ## 0.1.3+3
 

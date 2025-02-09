@@ -1,3 +1,58 @@
+## 0.3.10
+
+* Upgrading `flutter_google_places_sdk_web` to `0.1.8`
+* Upgrading `flutter_google_places_sdk_android` to `0.1.9`
+
+## 0.3.9
+
+* Upgrading `flutter_google_places_sdk_web` to `0.1.7`
+
+## 0.3.8
+
+* Upgrading `flutter_google_places_sdk_ios` to `0.1.5`
+
+## 0.3.7
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.2.7`
+* Upgrading `flutter_google_places_sdk_ios` to `0.1.3`
+* Upgrading `flutter_google_places_sdk_web` to `0.1.6`
+* Upgrading `flutter_google_places_sdk_android` to `0.1.8`
+* Upgrading `flutter_google_places_sdk_windows` to `0.1.4`
+* Upgrading `flutter_google_places_sdk_linux` to `0.1.4`
+* Upgrading `flutter_google_places_sdk_macos` to `0.1.4`
+
+## 0.3.6
+
+* Exporting all types rather than just by name, allowing clients to also see the freezed classes
+* Upgrading flutter_google_places_sdk_platform_interface to 0.2.6
+* Upgrading flutter_google_places_sdk_web to 0.1.5
+* Upgrading flutter_google_places_sdk_android to 0.1.7
+* Upgrading flutter_google_places_sdk_windows to 0.1.3
+* Upgrading flutter_google_places_sdk_linux to 0.1.3
+* Upgrading flutter_google_places_sdk_macos to 0.1.3
+* Upgrading sdk minimum to 2.17.0
+
+## 0.3.5
+
+* Updating android to 0.1.6
+
+## 0.3.4
+
+* Updated sdk minimum to 2.15.0
+* Updating web to 0.1.4
+* Updating android to 0.1.5
+* Updating windows to 0.1.2
+* Updating linux to 0.1.2
+* Updating macos to 0.1.2
+
+## 0.3.3
+
+* Updated sdk minimum to 2.14.0
+* Updating android to 0.1.3
+* Updating windows to 0.1.1
+* Updating linux to 0.1.1
+* Updating macos to 0.1.1
+
 ## 0.3.2+9
 
 * Updating ios to 0.1.2+4
