@@ -1,6 +1,12 @@
-## 0.1.9
+## 0.2.0
 
-* Fix: session token is never used during the place autocomplete
+* No changes, released to a non-dev version
+
+## 0.2.0-dev.1
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.3.1+1`
+* Upgrading `web` to `1.1.1`
+* Removed `js` dependency
 
 ## 0.1.8
 

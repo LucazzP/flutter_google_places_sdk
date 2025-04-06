@@ -1,3 +1,18 @@
+## 0.2.1
+
+* Upgrading `freezed_annotation` to `^3.0.0`
+* Upgrading `freezed` to `^3.0.4`
+* Upgrading `json_serializable` to `^6.9.4`
+* Upgrading `build_runner` to `^2.4.15`
+
+## 0.2.0
+
+* No changes, released to a non-dev version
+
+## 0.2.0-dev.1
+
+* Upgrading `flutter_google_places_sdk_platform_interface` to `0.3.1+1`
+
 ## 0.1.4
 
 * Upgrading `flutter_google_places_sdk_platform_interface` to `0.2.7`
